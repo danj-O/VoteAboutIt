@@ -1,0 +1,30 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(48, 48, 48);
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+}
+.navlist {
+    display: flex;
+    list-style: none;
+}
+.navbar-item {
+    padding: 20px;
+}
+a {
+    color: rgb(165, 95, 95);
+    text-decoration: none;
+}
+.logo {
+    font-size: 1.6em;
+}
+@media only screen and (max-width: 600px) {
+    .navbar {
+        font-size: 1em;
+    }
+    .navbar-item {
+        padding: 5px;
+    }
+}

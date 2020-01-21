@@ -1,14 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './Navbar.css'
 
 class Navbar extends React.Component {
 
     render () {
         return (
             <nav className="navbar">
-                <Link to="/" className="">Vote On It</Link>
+                <Link to="/" className="logo">Vote On It</Link>
                 <div>
-                    <ul>
+                    <ul className="navlist">
                         <li className="navbar-item">
                             <Link to="/"> Polls </Link>
                         </li>

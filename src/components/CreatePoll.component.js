@@ -1,6 +1,7 @@
 import React from "react"
 import axios from 'axios'
 import DatePicker from 'react-datepicker'
+import './createpoll.css'
 import "react-datepicker/dist/react-datepicker.css"
 
 class CreatePoll extends React.Component {
@@ -8,7 +9,10 @@ class CreatePoll extends React.Component {
             username: '',
             description: '',
             voterCount: 0,
-            options: [],
+            options: [{
+                name: '',
+                count: 0
+            }],
             date: new Date(),
             users: []
         }
@@ -47,14 +51,27 @@ class CreatePoll extends React.Component {
         })
     }
     handleChangeOption = (e) => {
-        this.setState({
-            options: e.target.value, 
-        })
+        console.log(this.state.options)
+
+        // options.map( it => <Option {...it} key={it.name} /> )
+        // this.setState({
+        //     options: {
+        //       ...this.state,
+        //       [name]: value
+        //     }
+        // });
     }
 
     handleClick = (e) => {
-        console.log(e.target)
-        // this.setState({options: e.t})
+        e.preventDefault()
+        console.log(e)
+        return <input 
+            type="text"
+            required
+            className="optionField form-control"
+            value={this.state.options}
+            onChange={this.handleChangeOption}
+        />
 
     }
 
@@ -63,7 +80,7 @@ class CreatePoll extends React.Component {
         const poll = {
             username: this.state.username,
             description: this.state.description,
-            options: this.state.options.name, 
+            options: this.state.options, 
             voterCount: this.state.voterCount,
             date: this.state.date
         }
@@ -82,7 +99,7 @@ class CreatePoll extends React.Component {
 
     render = () => {
         return (
-            <div>
+            <div className="create-poll">
                 <h3>Create new Poll!</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className='form-group'>
@@ -120,7 +137,7 @@ class CreatePoll extends React.Component {
                                 type="text"
                                 required
                                 className="form-control"
-                                value={this.state.duration}
+                                value={this.state.voterCount}
                                 onChange={this.handleChangeVoterCount}
                             />
                     </div>
@@ -130,12 +147,12 @@ class CreatePoll extends React.Component {
                                 type="text"
                                 required
                                 className="optionField form-control"
-                                value={this.state.options}
+                                value={this.state.options.name}
                                 onChange={this.handleChangeOption}
 
                             />
-                            <button onClick={this.handleClick} > Add</button>
-                            <br/>{this.state.options}
+                            <input type="button" value='add' onClick={this.handleClick} />
+                            <br/>{this.state.options.name}
                     </div>
                     <div className="form-group">
                             <label>Date: </label>

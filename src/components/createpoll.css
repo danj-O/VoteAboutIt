@@ -1,0 +1,18 @@
+.create-poll {
+    text-align: center;
+    background: rgb(224, 145, 145);
+    padding: 5vh 5vw;
+}
+.form-group {
+    /* display: flex; */
+    flex-direction: column;
+    padding: .5vh 0px;
+}
+input {
+    /* width: 20vw; */
+    /* height: 20px; */
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+}

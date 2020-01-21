@@ -52,7 +52,7 @@ class PollsList extends React.Component {
                         poll={currentpole} 
                         deletePoll={this.deletePoll}
                         key={currentpole._id}
-                        options={currentpole.options}
+                        // options={currentpole.options}
                     />
         })
     }
@@ -60,7 +60,7 @@ class PollsList extends React.Component {
     render = () => {
 
         return(
-            <div>
+            <div className='poll-list'>
                 <h3>Polls</h3>
                 <table className="table">
                     <thead>
