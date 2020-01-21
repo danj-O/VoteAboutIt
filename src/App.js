@@ -1,25 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
+
+import Navbar from './components/Navbar.component'
+import PollsList from './components/PollsList.component'
+import EditPoll from './components/EditPoll.component'
+import CreatePoll from './components/CreatePoll.component'
+import CreateUser from './components/CreateUser.component'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app">
+        <Navbar />
+        <br/>
+        <Route path='/' exact component={PollsList} />
+        <Route path='/edit/:id' component={EditPoll} />
+        <Route path='/create' component={CreatePoll} />
+        <Route path='/user' component={CreateUser} />
+      </div>
+    </Router>
   );
 }
 
